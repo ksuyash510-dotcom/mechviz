@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MechViz — Engineering Concepts Visualized</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <!-- KaTeX for formula rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" crossorigin="anonymous"/>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-logo">
+    <div class="nav-logo-mark">⚙</div>
+    MechViz
+  </div>
+  <div class="nav-tagline">Engineering Concepts Visualized</div>
+  <div></div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-dot"></span>
+      Interactive Engineering Platform
+    </div>
+    <h1>Stop Reading.<br><span class="hl">Start Understanding.</span></h1>
+    <p class="hero-sub">
+      Deep-dive engineering concepts with interactive simulations, worked numerical
+      examples, real-world applications, and an AI tutor. Completely free.
+    </p>
+    <div class="search-wrap">
+      <div class="search-icon">⌕</div>
+      <input type="text" id="search-input"
+        placeholder="Search concepts — beam deflection, Rankine cycle, Reynolds number..."
+        autocomplete="off"/>
+      <button class="search-btn">Search</button>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="val" id="concept-count">30</span><label>Concepts</label></div>
+      <div class="hero-stat"><span class="val">30</span><label>Simulations</label></div>
+      <div class="hero-stat"><span class="val">5</span><label>Subjects</label></div>
+      <div class="hero-stat"><span class="val">₹0</span><label>Cost</label></div>
+    </div>
+  </div>
+</section>
+
+<div class="filters-bar">
+  <div class="filters-inner">
+    <span class="filter-label">Filter</span>
+    <div id="category-filters" style="display:flex;gap:8px;flex-wrap:wrap;"></div>
+  </div>
+</div>
+
+<section class="concepts-section">
+  <div class="container">
+    <div class="section-label">All Concepts</div>
+    <div id="concepts-grid" class="concepts-grid"></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p><strong>MechViz</strong> — Deep engineering education, zero cost.</p>
+  <p>
+    AI powered by <a href="https://console.groq.com" target="_blank">Groq (Llama 3)</a> — free, no credit card &nbsp;·&nbsp;
+    References: MIT OCW · NPTEL · IAPWS Steam Tables · Engineering Toolbox
+  </p>
+</footer>
+
+<script src="js/db/core.js?v=2"></script>
+<script src="js/db/som.js?v=2"></script>
+<script src="js/db/thermo.js?v=2"></script>
+<script src="js/db/fluid.js?v=2"></script>
+<script src="js/db/tom.js?v=2"></script>
+<script src="js/db/mfg.js?v=2"></script>
+<script src="js/main.js?v=2"></script>
+</body>
+</html>

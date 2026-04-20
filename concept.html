@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MechViz — Concept</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <!-- KaTeX for formula rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" crossorigin="anonymous"/>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"
+    crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        {left:'$$', right:'$$', display:true},
+        {left:'$', right:'$', display:false}
+      ],
+      throwOnError: false,
+      strict: false
+    });">
+  </script>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="index.html" class="nav-back">← All Concepts</a>
+  <div class="nav-logo">
+    <div class="nav-logo-mark">⚙</div>
+    MechViz
+  </div>
+  <div></div>
+</nav>
+
+<div class="concept-header">
+  <div class="concept-header-bg"></div>
+  <div class="concept-header-inner">
+    <div id="concept-icon" class="concept-icon-box"></div>
+    <div class="concept-meta">
+      <div class="breadcrumb">
+        <a href="index.html">MechViz</a>
+        <span class="bc-sep">/</span>
+        <span id="concept-category-bc"></span>
+        <span class="bc-sep">/</span>
+        <span id="concept-title-bc"></span>
+      </div>
+      <span id="concept-category" class="concept-cat-pill"></span>
+      <h1 id="concept-title"></h1>
+      <p id="concept-desc" class="desc"></p>
+    </div>
+  </div>
+</div>
+
+<div class="tabs-bar">
+  <nav class="tabs-nav">
+    <button class="tab-btn active" data-tab="tab-theory">📐 Theory</button>
+    <button class="tab-btn"        data-tab="tab-worked">🧮 Worked Example</button>
+    <button class="tab-btn"        data-tab="tab-simulation">⚡ Simulation</button>
+    <button class="tab-btn"        data-tab="tab-realworld">🏭 Real World</button>
+    <button class="tab-btn"        data-tab="tab-mistakes">⚠️ Common Mistakes</button>
+    <button class="tab-btn"        data-tab="tab-resources">🔗 Resources</button>
+    <button class="tab-btn"        data-tab="tab-quiz">🧠 Quiz</button>
+    <button class="tab-btn"        data-tab="tab-ai">🤖 AI Tutor</button>
+  </nav>
+</div>
+
+<div class="concept-layout">
+
+  <!-- MAIN CONTENT -->
+  <div class="concept-main">
+
+    <!-- THEORY -->
+    <div id="tab-theory" class="tab-panel active">
+      <div class="sc">
+        <div class="sc-title"><span class="sc-icon">📖</span>Definition</div>
+        <p id="concept-definition" class="definition-block"></p>
+      </div>
+      <div class="sc">
+        <div class="sc-title"><span class="sc-icon">🧠</span>Key Concepts</div>
+        <div id="key-concepts-list" class="kc-grid"></div>
+      </div>
+      <div class="sc">
+        <div class="sc-title"><span class="sc-icon">📐</span>Formulas</div>
+        <div id="formulas-list" class="formula-list"></div>
+      </div>
+      <div class="sc">
+        <div class="sc-title"><span class="sc-icon">💡</span>How It Works</div>
+        <p id="concept-explanation" class="explanation-text"></p>
+      </div>
+      <div class="sc" id="rules-card">
+        <div class="sc-title"><span class="sc-icon">📏</span>Practical Rules of Thumb</div>
+        <div id="practical-rules" class="rules-list"></div>
+      </div>
+    </div>
+
+    <!-- WORKED EXAMPLE -->
+    <div id="tab-worked" class="tab-panel">
+      <div class="sc">
+        <div class="sc-title"><span class="sc-icon">🧮</span>Worked Numerical Example</div>
+        <div id="worked-example"></div>
+      </div>
+    </div>
+
+    <!-- SIMULATION -->
+    <div id="tab-simulation" class="tab-panel">
+      <div class="sc">
+        <div class="sc-title"><span class="sc-icon">⚡</span>Interactive Simulation</div>
+        <p class="sim-hint">Adjust parameters and see the physics respond in real time</p>
+        <div id="simulation-container"></div>
+      </div>
+    </div>
+
+    <!-- REAL WORLD -->
+    <div id="tab-realworld" class="tab-panel">
+      <div class="sc">
+        <div class="sc-title"><span class="sc-icon">🏭</span>Real-World Applications</div>
+        <div id="real-world-uses" class="rw-grid"></div>
+      </div>
+    </div>
+
+    <!-- COMMON MISTAKES -->
+    <div id="tab-mistakes" class="tab-panel">
+      <div class="sc">
+        <div class="sc-title"><span class="sc-icon">⚠️</span>Common Mistakes &amp; Misconceptions</div>
+        <div id="common-mistakes" class="mistakes-list"></div>
+      </div>
+    </div>
+
+    <!-- RESOURCES -->
+    <div id="tab-resources" class="tab-panel">
+      <div class="sc">
+        <div class="sc-title"><span class="sc-icon">🔗</span>Further Learning</div>
+        <div id="resources-list" class="resources-list"></div>
+      </div>
+    </div>
+
+    <!-- QUIZ -->
+    <div id="tab-quiz" class="tab-panel"></div>
+
+    <!-- AI TUTOR -->
+    <div id="tab-ai" class="tab-panel">
+      <div class="sc ai-section">
+        <div class="sc-title"><span class="sc-icon">🤖</span>AI Tutor — <span id="ai-concept-name"></span></div>
+        <p>Ask anything. The tutor has full context — definitions, formulas, derivations, worked examples.</p>
+        <div id="chat-messages" class="chat-messages">
+          <div class="chat-msg ai">
+            <div class="msg-bubble">
+              Hi — I'm your AI tutor for this concept. Good prompts to try:<br><br>
+              "Derive the formula step by step"<br>
+              "Give me a harder numerical example"<br>
+              "What's the physical intuition behind this?"<br>
+              "How does this compare with [related concept]?"
+            </div>
+          </div>
+        </div>
+        <div class="chat-input-row">
+          <textarea id="chat-input" placeholder="Ask anything... (Enter to send)" rows="2"></textarea>
+          <button id="send-btn" class="send-btn">Send ↑</button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /concept-main -->
+
+  <!-- STICKY SIDEBAR -->
+  <aside class="formula-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-card-title">Quick Reference // Formulas</div>
+      <div id="sidebar-formulas" class="sidebar-formulas"></div>
+    </div>
+  </aside>
+
+</div><!-- /concept-layout -->
+
+<footer class="footer">
+  <p><strong>MechViz</strong> — Deep engineering education, zero cost.</p>
+</footer>
+
+<script src="js/db/core.js?v=2"></script>
+<script src="js/db/som.js?v=2"></script>
+<script src="js/db/thermo.js?v=2"></script>
+<script src="js/db/fluid.js?v=2"></script>
+<script src="js/db/tom.js?v=2"></script>
+<script src="js/db/mfg.js?v=2"></script>
+<script src="js/simulations.js?v=2"></script>
+<script src="js/ai.js?v=2"></script>
+<script src="js/quiz.js?v=2"></script>
+<script src="js/concept.js?v=2"></script>
+</body>
+</html>
